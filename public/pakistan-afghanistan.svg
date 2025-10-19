@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="skyGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D6D7E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="675" fill="url(#skyGrad2)"/>
+  
+  <!-- Mountains -->
+  <polygon points="0,675 200,300 400,675" fill="url(#mountainGrad)" opacity="0.8"/>
+  <polygon points="300,675 500,250 700,675" fill="url(#mountainGrad)" opacity="0.9"/>
+  <polygon points="600,675 800,280 1000,675" fill="url(#mountainGrad)" opacity="0.85"/>
+  <polygon points="900,675 1050,350 1200,675" fill="url(#mountainGrad)" opacity="0.8"/>
+  
+  <!-- Snow caps -->
+  <polygon points="500,250 450,320 550,320" fill="white" opacity="0.9"/>
+  <polygon points="800,280 750,350 850,350" fill="white" opacity="0.9"/>
+  
+  <!-- Border line (dashed) -->
+  <line x1="100" y1="100" x2="1100" y2="500" stroke="#E74C3C" stroke-width="5" stroke-dasharray="20,15" opacity="0.8"/>
+  
+  <!-- Guard tower silhouettes -->
+  <rect x="250" y="420" width="30" height="60" fill="#2C3E50"/>
+  <polygon points="265,420 250,395 280,395" fill="#2C3E50"/>
+  <rect x="850" y="450" width="30" height="60" fill="#2C3E50"/>
+  <polygon points="865,450 850,425 880,425" fill="#2C3E50"/>
+  
+  <!-- Text -->
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="white" text-anchor="middle" opacity="0.95">
+    Pakistan-Afghanistan Border
+  </text>
+</svg>

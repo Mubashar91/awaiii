@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="autoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764BA2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="675" fill="url(#autoGrad)"/>
+  
+  <!-- Workflow nodes -->
+  <g opacity="0.9">
+    <!-- Node 1 -->
+    <circle cx="300" cy="150" r="50" fill="#FF6B6B" stroke="white" stroke-width="4"/>
+    <text x="300" y="160" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">1</text>
+    
+    <!-- Node 2 -->
+    <rect x="525" y="100" width="100" height="100" rx="15" fill="#4ECDC4" stroke="white" stroke-width="4"/>
+    <text x="575" y="160" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">2</text>
+    
+    <!-- Node 3 -->
+    <circle cx="850" cy="150" r="50" fill="#95E1D3" stroke="white" stroke-width="4"/>
+    <text x="850" y="160" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">3</text>
+    
+    <!-- Node 4 -->
+    <rect x="525" y="375" width="100" height="100" rx="15" fill="#F38181" stroke="white" stroke-width="4"/>
+    <text x="575" y="435" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">4</text>
+    
+    <!-- Node 5 -->
+    <circle cx="300" cy="525" r="50" fill="#AA96DA" stroke="white" stroke-width="4"/>
+    <text x="300" y="535" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">5</text>
+    
+    <!-- Node 6 -->
+    <circle cx="850" cy="525" r="50" fill="#FCBAD3" stroke="white" stroke-width="4"/>
+    <text x="850" y="535" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">6</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="white" stroke-width="3" fill="none" opacity="0.8">
+    <path d="M 350 150 L 525 150" marker-end="url(#arrowhead)"/>
+    <path d="M 625 150 L 800 150" marker-end="url(#arrowhead)"/>
+    <path d="M 575 200 L 575 375" marker-end="url(#arrowhead)"/>
+    <path d="M 525 425 L 350 525" marker-end="url(#arrowhead)"/>
+    <path d="M 625 425 L 800 525" marker-end="url(#arrowhead)"/>
+    <path d="M 575 300 L 450 300 L 450 470 L 525 470" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="white"/>
+    </marker>
+  </defs>
+  
+  <!-- Gear icons -->
+  <g opacity="0.3">
+    <g transform="translate(150, 300)">
+      <circle r="40" fill="none" stroke="white" stroke-width="8"/>
+      <circle r="20" fill="white"/>
+      <rect x="-8" y="-50" width="16" height="100" fill="white"/>
+      <rect x="-50" y="-8" width="100" height="16" fill="white"/>
+    </g>
+    
+    <g transform="translate(1000, 350)">
+      <circle r="35" fill="none" stroke="white" stroke-width="7"/>
+      <circle r="18" fill="white"/>
+      <rect x="-7" y="-45" width="14" height="90" fill="white"/>
+      <rect x="-45" y="-7" width="90" height="14" fill="white"/>
+    </g>
+  </g>
+  
+  <!-- Text -->
+  <text x="600" y="630" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle">
+    Workflow Automation
+  </text>
+</svg>
