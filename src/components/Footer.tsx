@@ -3,7 +3,7 @@ import { Sparkles, Briefcase, Laptop, Camera } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/home" },
     { name: "Blogs", path: "/blogs" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -25,16 +25,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/home" className="flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary">
-                <span className="text-lg font-bold text-white">C</span>
+                <span className="text-lg font-bold text-white">M</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                CognitHub
+                my blogs
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              CognitHub shares insights on tech, lifestyle, and development. Learn, explore, and grow with curated content.
+              my blogs shares insights on tech, lifestyle, and development. Learn, explore, and grow with curated content.
             </p>
             <div className="flex gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
@@ -91,8 +91,8 @@ const Footer = () => {
         <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © 2025{" "}
-            <Link to="/" className="text-primary hover:underline">
-              CognitHub
+            <Link to="/home" className="text-primary hover:underline">
+              my blogs
             </Link>{" "}
             — All rights reserved.
           </p>

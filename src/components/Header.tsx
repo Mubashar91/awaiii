@@ -8,7 +8,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/home" },
     { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
     { name: "Blogs", path: "/blogs" },
@@ -21,12 +21,12 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/home" className="flex items-center gap-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary transition-transform group-hover:scale-110">
-            <span className="text-lg font-bold text-white">C</span>
+            <span className="text-lg font-bold text-white">M</span>
           </div>
           <span className="text-xl font-bold">
-            Cognit <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hub</span>
+            my <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">blogs</span>
           </span>
         </Link>
 

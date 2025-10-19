@@ -34,11 +34,11 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    Welcome to CognitHub. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions.
+                    Welcome to my blogs. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Use of Content</h3>
                   <p>
-                    All content on CognitHub, including articles, images, and design elements, is protected by copyright. You may read and share our articles, but reproduction without permission is prohibited.
+                    All content on my blogs, including articles, images, and design elements, is protected by copyright. You may read and share our articles, but reproduction without permission is prohibited.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">User Conduct</h3>
                   <p>
@@ -46,7 +46,7 @@ const Terms = () => {
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Liability</h3>
                   <p>
-                    While we strive for accuracy, CognitHub is not liable for any errors or omissions in our content. Information is provided "as is" without warranties of any kind.
+                    While we strive for accuracy, my blogs is not liable for any errors or omissions in our content. Information is provided "as is" without warranties of any kind.
                   </p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    At CognitHub, we are committed to protecting your privacy and ensuring the security of your personal information.
+                    At my blogs, we are committed to protecting your privacy and ensuring the security of your personal information.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Information We Collect</h3>
                   <p>
@@ -92,7 +92,7 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    CognitHub uses cookies to enhance your browsing experience and understand how you interact with our website.
+                    my blogs uses cookies to enhance your browsing experience and understand how you interact with our website.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">What Are Cookies?</h3>
                   <p>

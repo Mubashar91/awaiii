@@ -164,12 +164,12 @@ const Index = () => {
       answer: "We publish new articles daily across various categories including technology, lifestyle, development, design, sports, and news to keep you informed and engaged."
     },
     {
-      question: "Can I contribute articles to CognitHub?",
+      question: "Can I contribute articles to my blogs?",
       answer: "Yes! We welcome contributions from experienced writers and subject matter experts. Contact us through our contact page to learn more about our submission guidelines."
     },
     {
       question: "Is there a subscription fee?",
-      answer: "CognitHub is completely free to access. We believe quality content should be available to everyone without paywalls or subscription fees."
+      answer: "my blogs is completely free to access. We believe quality content should be available to everyone without paywalls or subscription fees."
     },
     {
       question: "How can I stay updated with new articles?",
@@ -221,7 +221,7 @@ const Index = () => {
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   Welcome to{" "}
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    CognitHub
+                    my blogs
                   </span>
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -392,7 +392,7 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-slide-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose CognitHub?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose my blogs?</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Your trusted source for quality content across multiple domains
               </p>
@@ -494,7 +494,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Commitment to Excellence</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide everything we do at CognitHub
+                The principles that guide everything we do at my blogs
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -656,7 +656,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Readers Say</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Join thousands of satisfied readers who trust CognitHub for quality content
+                Join thousands of satisfied readers who trust my blogs for quality content
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -667,7 +667,7 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  "The articles are insightful, detailed, and really help me stay updated with the latest trends. CognitHub has become my daily read!"
+                  "The articles are insightful, detailed, and really help me stay updated with the latest trends. my blogs has become my daily read!"
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
@@ -705,7 +705,7 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  "Exceptional content across all categories. The depth of research and clarity of writing sets CognitHub apart from other platforms."
+                  "Exceptional content across all categories. The depth of research and clarity of writing sets my blogs apart from other platforms."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
@@ -727,7 +727,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Got questions? We've got answers. Learn more about CognitHub and how we serve our readers.
+                Got questions? We've got answers. Learn more about my blogs and how we serve our readers.
               </p>
             </div>
             <div className="max-w-4xl mx-auto space-y-4">
