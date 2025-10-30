@@ -1,8 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Target, Award, Heart } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const About = () => {
+  useSEO({
+    title: "About — Blog Keeper",
+    description: "Learn about Blog Keeper's mission, values, and what we cover across technology, development, lifestyle, design, sports, and news.",
+    url: "https://blogkeeper.site/about"
+  });
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -12,7 +18,7 @@ const About = () => {
         <section className="gradient-hero py-20 animate-fade-in">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
-              About <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">my blogs</span>
+              About <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">blog keeper</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
               Your trusted source for insightful content across technology, lifestyle, development, design, sports, and global news.
@@ -28,7 +34,7 @@ const About = () => {
                 <div className="animate-slide-in-left">
                   <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    At my blogs, we believe in the power of knowledge and thoughtful discourse. Our mission is to provide readers with well-researched, engaging content that informs, educates, and inspires.
+                    At blog keeper, we believe in the power of knowledge and thoughtful discourse. Our mission is to provide readers with well-researched, engaging content that informs, educates, and inspires.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     We curate articles that matter, covering diverse topics to help you stay informed about the world around you.
@@ -37,8 +43,9 @@ const About = () => {
                 <div className="relative animate-scale-in">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-3xl"></div>
                   <img
-                    src="/our-mission.svg"
+                    src="https://source.unsplash.com/featured/800x600?mission,team,collaboration"
                     alt="Our Mission"
+                    referrerPolicy="no-referrer"
                     className="relative rounded-2xl shadow-xl w-full"
                   />
                 </div>
@@ -124,7 +131,7 @@ const About = () => {
                 <div className="bg-card rounded-2xl p-8 border hover-lift">
                   <h3 className="text-xl font-bold mb-4 text-primary">The Beginning</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    my blogs was founded with a simple yet powerful vision: to create a platform where quality content meets curious minds. What started as a small blog has grown into a comprehensive knowledge hub serving thousands of readers worldwide.
+                    blog keeper was founded with a simple yet powerful vision: to create a platform where quality content meets curious minds. What started as a small blog has grown into a comprehensive knowledge hub serving thousands of readers worldwide.
                   </p>
                 </div>
 
@@ -151,7 +158,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12 animate-slide-up">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose my blogs?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose blog keeper?</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   What sets us apart in the world of online content
                 </p>
@@ -302,7 +309,7 @@ const About = () => {
                     <span className="font-bold text-primary"> your trust over everything else</span>.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Every article published on my blogs undergoes rigorous fact-checking and editorial review. 
+                    Every article published on blog keeper undergoes rigorous fact-checking and editorial review. 
                     We're committed to providing you with content that's not only informative and engaging but also 
                     reliable and trustworthy. Your satisfaction and trust are the measures of our success.
                   </p>

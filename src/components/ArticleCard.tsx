@@ -11,13 +11,41 @@ interface ArticleCardProps {
   readTime?: string;
 }
 
+const toUnsplash = (src: string, fallbackQuery: string, sig: number) =>
+  src.startsWith("/")
+    ? `https://source.unsplash.com/featured/800x500?${encodeURIComponent(fallbackQuery)}&sig=${sig}`
+    : src;
+
+const queryForCategory = (category: string, title: string) => {
+  const map: Record<string, string> = {
+    Technology: "technology,computer,code",
+    Development: "programming,developer,code,laptop",
+    Lifestyle: "lifestyle,home,minimalist,wellness",
+    Design: "design,ui,ux,creative,workspace",
+    Sports: "sports,stadium,football,cricket",
+    News: "news,newspaper,press,media",
+  };
+  return map[category] || title;
+};
+
 const ArticleCard = ({ id, title, excerpt, image, category, readTime }: ArticleCardProps) => {
   return (
     <div className="group rounded-xl overflow-hidden bg-card border hover:shadow-lg transition-all duration-300 animate-scale-in">
       <div className="relative overflow-hidden aspect-[16/10]">
         <img
-          src={image}
+          src={toUnsplash(image, queryForCategory(category, title), id)}
           alt={title}
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          decoding="async"
+          width={800}
+          height={500}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={(e) => {
+            const target = e.currentTarget as HTMLImageElement;
+            target.onerror = null;
+            target.src = `https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80`;
+          }}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute top-4 left-4">

@@ -27,14 +27,14 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/home" className="flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary">
-                <span className="text-lg font-bold text-white">M</span>
+                <span className="text-lg font-bold text-white">B</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                my blogs
+                blog keeper
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              my blogs shares insights on tech, lifestyle, and development. Learn, explore, and grow with curated content.
+              blog keeper shares insights on tech, lifestyle, and development. Learn, explore, and grow with curated content.
             </p>
             <div className="flex gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
@@ -92,18 +92,18 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © 2025{" "}
             <Link to="/home" className="text-primary hover:underline">
-              my blogs
+              blog keeper
             </Link>{" "}
             — All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
             <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/cookie" className="text-muted-foreground hover:text-primary transition-colors">
               Cookie Policy
             </Link>
           </div>

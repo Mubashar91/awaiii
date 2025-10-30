@@ -23,10 +23,10 @@ const Header = () => {
         {/* Logo */}
         <Link to="/home" className="flex items-center gap-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary transition-transform group-hover:scale-110">
-            <span className="text-lg font-bold text-white">M</span>
+            <span className="text-lg font-bold text-white">B</span>
           </div>
           <span className="text-xl font-bold">
-            my <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">blogs</span>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">blog keeper</span>
           </span>
         </Link>
 

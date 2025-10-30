@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 
 const Landing = () => {
+  useSEO({
+    title: "Blog Keeper — Insightful articles across tech, development, lifestyle, design, sports, and news",
+    description: "Explore well‑researched, readable articles across multiple domains. Updated regularly.",
+    url: "https://blogkeeper.site/",
+    image: "https://blogkeeper.site/vite.svg"
+  });
   const pages = [
     { name: "Home", path: "/home", description: "Explore our blog articles" },
     { name: "Blogs", path: "/blogs", description: "Browse all articles" },
@@ -16,7 +23,7 @@ const Landing = () => {
       <div className="w-full py-16 md:py-24 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 animate-fade-in">
-            my blogs
+            blog keeper
           </h1>
           <p className="text-lg md:text-xl text-slate-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Explore quality content across multiple domains
@@ -48,7 +55,7 @@ const Landing = () => {
       {/* Footer */}
       <div className="w-full py-6 bg-slate-900/50 text-center">
         <p className="text-slate-400 text-sm">
-          © 2025 my blogs — All rights reserved
+          © 2025 blog keeper — All rights reserved
         </p>
       </div>
     </div>

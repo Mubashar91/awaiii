@@ -5,39 +5,157 @@ import ReadingProgress from "@/components/ReadingProgress";
 import TableOfContents from "@/components/TableOfContents";
 import ShareButtons from "@/components/ShareButtons";
 import ArticleCard from "@/components/ArticleCard";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/articleList";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { 
   ArrowLeft, 
-  Clock, 
-  Calendar, 
   User, 
   Eye, 
   Printer, 
   Bookmark,
   TrendingUp,
   MessageSquare,
-  Award
+  
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
+
+const toUnsplash = (src: string, query: string) =>
+  src.startsWith("/")
+    ? `https://source.unsplash.com/featured/1280x720?${encodeURIComponent(query)}`
+    : src;
+
+const queryForCategory = (category: string, title: string) => {
+  const map: Record<string, string> = {
+    Technology: "technology,computer,code",
+    Development: "programming,developer,code,laptop",
+    Lifestyle: "lifestyle,home,minimalist,wellness",
+    Design: "design,ui,ux,creative,workspace",
+    Sports: "sports,stadium,football,cricket",
+    News: "news,newspaper,press,media",
+  };
+  return map[category] || title;
+};
+
+const toSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+const isUnsplash = (src: string) => /images\.unsplash\.com|source\.unsplash\.com/.test(src);
 
 const BlogPost = () => {
   const { id } = useParams();
   const article = articles.find((a) => a.id === Number(id));
-  const [readingTime, setReadingTime] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Simulate reading progress
-    const interval = setInterval(() => {
-      setReadingTime(prev => Math.min(prev + 1, 100));
-    }, 3000);
-
-    return () => clearInterval(interval);
   }, [id]);
+
+  // Per-article SEO
+  useSEO({
+    title: article ? `${article.title} — Blog Keeper` : "Article — Blog Keeper",
+    description: article?.excerpt,
+    url: article ? `https://blogkeeper.site/blog/${article.id}` : undefined,
+    image: article?.image
+  });
+
+  // JSON-LD Article schema
+  useEffect(() => {
+    if (!article) return;
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.excerpt,
+      "author": {
+        "@type": "Person",
+        "name": article.author
+      },
+      "datePublished": article.published,
+      "image": article.image,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://blogkeeper.site/blog/${article.id}`
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Blog Keeper",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blogkeeper.site/vite.svg"
+        }
+      }
+    };
+    let script = document.querySelector("script#article-jsonld") as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = "article-jsonld";
+      document.head.appendChild(script);
+    }
+    script.text = JSON.stringify(data);
+    // Breadcrumbs
+    const crumbs = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://blogkeeper.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://blogkeeper.site/blogs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": article.title,
+          "item": `https://blogkeeper.site/blog/${article.id}`
+        }
+      ]
+    };
+    let crumbScript = document.querySelector("script#breadcrumbs-jsonld") as HTMLScriptElement | null;
+    if (!crumbScript) {
+      crumbScript = document.createElement("script");
+      crumbScript.type = "application/ld+json";
+      crumbScript.id = "breadcrumbs-jsonld";
+      document.head.appendChild(crumbScript);
+    }
+    crumbScript.text = JSON.stringify(crumbs);
+    return () => {
+      if (script && script.parentNode) script.parentNode.removeChild(script);
+      if (crumbScript && crumbScript.parentNode) crumbScript.parentNode.removeChild(crumbScript);
+    };
+  }, [article]);
+
+  // JSON-LD FAQ schema when FAQs exist
+  useEffect(() => {
+    if (!article?.faqs || article.faqs.length === 0) return;
+    const faq = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": article.faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+      }))
+    };
+    let faqScript = document.querySelector("script#faq-jsonld") as HTMLScriptElement | null;
+    if (!faqScript) {
+      faqScript = document.createElement("script");
+      faqScript.type = "application/ld+json";
+      faqScript.id = "faq-jsonld";
+      document.head.appendChild(faqScript);
+    }
+    faqScript.text = JSON.stringify(faq);
+    return () => {
+      if (faqScript && faqScript.parentNode) faqScript.parentNode.removeChild(faqScript);
+    };
+  }, [article?.faqs]);
 
   if (!article) {
     return (
@@ -173,69 +291,14 @@ const BlogPost = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Quality Badge */}
-                    <div className="p-6 rounded-2xl border gradient-primary text-white">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Award className="h-6 w-6" />
-                        <h3 className="font-bold">Premium Content</h3>
-                      </div>
-                      <p className="text-sm text-white/90">
-                        This article has been verified by our editorial team for accuracy and quality.
-                      </p>
-                    </div>
                   </div>
                 </aside>
 
                 {/* Main Content */}
                 <div className="lg:col-span-9">
-                  {/* Article Header */}
-                  <div className="mb-6 md:mb-8 animate-fade-in">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-                      <Badge className="gradient-primary text-white px-3 sm:px-4 py-1 text-xs sm:text-sm">
-                        {article.category}
-                      </Badge>
-                      <span className="text-xs sm:text-sm text-muted-foreground">Featured Article</span>
-                    </div>
-                    
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                      {article.title}
-                    </h1>
-                    
-                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 md:mb-8 font-medium">
-                      {article.excerpt}
-                    </p>
-
-                    {/* Meta Information */}
-                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm pb-4 sm:pb-6 border-b">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-sm">
-                          {article.author.charAt(0)}
-                        </div>
-                        <div>
-                          <div className="font-semibold text-sm sm:text-base">{article.author}</div>
-                          <div className="text-muted-foreground text-xs">Verified Author</div>
-                        </div>
-                      </div>
-                      <Separator orientation="vertical" className="h-8 sm:h-10 hidden sm:block" />
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="text-xs sm:text-sm">{article.published}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="text-xs sm:text-sm">{article.readTime}</span>
-                      </div>
-                      <div className="hidden sm:flex items-center gap-2 text-muted-foreground">
-                        <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
-                        <span className="text-xs sm:text-sm">{article.views}</span>
-                      </div>
-                    </div>
-
-                    {/* Share Buttons */}
-                    <div className="mt-4 sm:mt-6">
-                      <ShareButtons title={article.title} url={`/blog/${article.id}`} />
-                    </div>
+                  {/* Share Buttons */}
+                  <div className="mt-4 sm:mt-6">
+                    <ShareButtons title={article.title} url={`/blog/${article.id}`} />
                   </div>
 
                   {/* Mobile Stats - Show on mobile only */}
@@ -261,10 +324,26 @@ const BlogPost = () => {
                   <div className="mb-8 md:mb-12 animate-scale-in">
                     <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl">
                       <img
-                        src={article.image}
+                        src={toUnsplash(article.image, queryForCategory(article.category, article.title))}
                         alt={article.title}
+                        loading="lazy"
+                        decoding="async"
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 960px"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = `https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1280&q=80`;
+                        }}
+                        referrerPolicy="no-referrer"
                         className="w-full aspect-video object-cover"
                       />
+                      {(article.imageCredit || isUnsplash(article.image)) && (
+                        <div className="absolute bottom-0 right-0 bg-black/50 text-white text-xs px-2 py-1">
+                          {article.imageCredit || "Image via Unsplash"}
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     </div>
                   </div>
@@ -306,8 +385,10 @@ const BlogPost = () => {
                           {article.authorBio}
                         </p>
                         <Button variant="outline" size="sm" className="text-xs sm:text-sm">
-                          <User className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
-                          View Profile
+                          <Link to={`/author/${toSlug(article.author)}`} className="flex items-center">
+                            <User className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                            View Profile
+                          </Link>
                         </Button>
                       </div>
                     </div>

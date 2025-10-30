@@ -6,8 +6,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MessageSquare, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useSEO } from "@/hooks/useSEO";
 
 const Contact = () => {
+  useSEO({
+    title: "Contact — Blog Keeper",
+    description: "Have questions or feedback? Contact Blog Keeper and we’ll respond within 24–48 hours.",
+    url: "https://blogkeeper.site/contact"
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,7 +69,7 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-primary mt-1" />
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-sm text-muted-foreground">contact@myblogs.online</p>
+                      <p className="text-sm text-muted-foreground">contact@blogkeeper.site</p>
                     </div>
                   </div>
 

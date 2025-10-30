@@ -1,8 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FileText, Shield, Cookie } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const Terms = () => {
+  useSEO({
+    title: "Terms & Policies — Blog Keeper",
+    description: "Read our Terms of Service, Privacy practices, and Cookie information.",
+    url: "https://blogkeeper.site/terms"
+  });
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -34,11 +40,11 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    Welcome to my blogs. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions.
+                    Welcome to blog keeper. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Use of Content</h3>
                   <p>
-                    All content on my blogs, including articles, images, and design elements, is protected by copyright. You may read and share our articles, but reproduction without permission is prohibited.
+                    All content on blog keeper, including articles, images, and design elements, is protected by copyright. You may read and share our articles, but reproduction without permission is prohibited.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">User Conduct</h3>
                   <p>
@@ -46,7 +52,7 @@ const Terms = () => {
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Liability</h3>
                   <p>
-                    While we strive for accuracy, my blogs is not liable for any errors or omissions in our content. Information is provided "as is" without warranties of any kind.
+                    While we strive for accuracy, blog keeper is not liable for any errors or omissions in our content. Information is provided "as is" without warranties of any kind.
                   </p>
                 </div>
               </div>
@@ -61,7 +67,7 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    At my blogs, we are committed to protecting your privacy and ensuring the security of your personal information.
+                    At blog keeper, we are committed to protecting your privacy and ensuring the security of your personal information.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Information We Collect</h3>
                   <p>
@@ -92,7 +98,7 @@ const Terms = () => {
                 </div>
                 <div className="prose prose-lg max-w-none space-y-4 text-muted-foreground">
                   <p>
-                    my blogs uses cookies to enhance your browsing experience and understand how you interact with our website.
+                    blog keeper uses cookies to enhance your browsing experience and understand how you interact with our website.
                   </p>
                   <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">What Are Cookies?</h3>
                   <p>

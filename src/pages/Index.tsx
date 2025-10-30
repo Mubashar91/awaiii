@@ -5,10 +5,17 @@ import ArticleCard from "@/components/ArticleCard";
 import NewsletterSection from "@/components/NewsletterSection";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/articleList";
 import { ArrowRight, TrendingUp, Users, BookOpen, Award, Clock, Zap, Shield, Globe, Star, MessageSquare, Target, Lightbulb, Heart, CheckCircle, BookmarkPlus, Sparkles, FileText, PenTool, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const Index = () => {
+  useSEO({
+    title: "Blog Keeper — Read the latest articles across technology, development, lifestyle, design, sports, and news",
+    description: "Discover featured and latest articles curated for clarity and depth. Updated regularly across multiple categories.",
+    url: "https://blogkeeper.site/home",
+    image: "https://blogkeeper.site/vite.svg"
+  });
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [latestIndex, setLatestIndex] = useState(0);
   
@@ -160,28 +167,28 @@ const Index = () => {
   
   const faqs = [
     {
-      question: "How often is new content published?",
-      answer: "We publish new articles daily across various categories including technology, lifestyle, development, design, sports, and news to keep you informed and engaged."
+      question: "How often do you publish new articles?",
+      answer: "Fresh pieces go live throughout the week across technology, lifestyle, development, design, sports, and news so there’s always something new to read."
     },
     {
-      question: "Can I contribute articles to my blogs?",
-      answer: "Yes! We welcome contributions from experienced writers and subject matter experts. Contact us through our contact page to learn more about our submission guidelines."
+      question: "Can I pitch or contribute an article?",
+      answer: "Yes. We accept submissions from experienced writers and practitioners. Send a brief outline via our contact page and we’ll share our guidelines."
     },
     {
-      question: "Is there a subscription fee?",
-      answer: "my blogs is completely free to access. We believe quality content should be available to everyone without paywalls or subscription fees."
+      question: "Do I need a paid subscription?",
+      answer: "No. Reading is free. If we introduce optional memberships later, core articles will remain accessible."
     },
     {
-      question: "How can I stay updated with new articles?",
-      answer: "Subscribe to our newsletter to receive regular updates about new articles, trending topics, and exclusive content directly in your inbox."
+      question: "What’s the best way to get updates?",
+      answer: "Join our newsletter for weekly highlights and follow our social channels for real‑time posts and editor picks."
     },
     {
-      question: "Can I request specific topics?",
-      answer: "Absolutely! We value reader feedback and suggestions. Use our contact form to suggest topics you'd like to see covered, and we'll do our best to create relevant content."
+      question: "Can I request a topic?",
+      answer: "Absolutely. Share your idea through the contact form. We track requests and prioritize themes with broad interest."
     },
     {
-      question: "Are articles fact-checked and reviewed?",
-      answer: "Yes, every article goes through a thorough review process by our editorial team to ensure accuracy, quality, and adherence to our content standards."
+      question: "Are your articles reviewed before publishing?",
+      answer: "Yes. Editors review each piece for clarity and accuracy, and we update articles if new information emerges."
     }
   ];
   
@@ -221,7 +228,7 @@ const Index = () => {
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   Welcome to{" "}
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    my blogs
+                    blog keeper
                   </span>
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -392,7 +399,7 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-slide-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose my blogs?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose blog keeper?</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Your trusted source for quality content across multiple domains
               </p>
@@ -494,7 +501,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Commitment to Excellence</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide everything we do at my blogs
+                The principles that guide everything we do at blog keeper
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -656,7 +663,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Readers Say</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Join thousands of satisfied readers who trust my blogs for quality content
+                Join thousands of satisfied readers who trust blog keeper for quality content
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -667,14 +674,14 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  "The articles are insightful, detailed, and really help me stay updated with the latest trends. my blogs has become my daily read!"
+                  "Clear, well‑researched articles. I can skim for takeaways or dive deep when I have time—perfect for my day."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
-                    JD
+                    AK
                   </div>
                   <div>
-                    <h4 className="font-semibold">John Davis</h4>
+                    <h4 className="font-semibold">Aisha Khan</h4>
                     <p className="text-sm text-muted-foreground">Software Engineer</p>
                   </div>
                 </div>
@@ -686,14 +693,14 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  "I love the variety and quality of content here. It's my go-to place for blogs. The writing is professional and engaging!"
+                  "Reliable coverage across tech, design, and lifestyle. The writing is practical without the fluff."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-white font-bold">
-                    SP
+                    OP
                   </div>
                   <div>
-                    <h4 className="font-semibold">Sarah Parker</h4>
+                    <h4 className="font-semibold">Omar Patel</h4>
                     <p className="text-sm text-muted-foreground">Marketing Director</p>
                   </div>
                 </div>
@@ -705,14 +712,14 @@ const Index = () => {
                   ))}
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  "Exceptional content across all categories. The depth of research and clarity of writing sets my blogs apart from other platforms."
+                  "Thoughtful, consistent, and easy to trust. It’s the site I recommend when friends ask what to read."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
-                    MC
+                    LT
                   </div>
                   <div>
-                    <h4 className="font-semibold">Michael Chen</h4>
+                    <h4 className="font-semibold">Lina Torres</h4>
                     <p className="text-sm text-muted-foreground">Data Analyst</p>
                   </div>
                 </div>
@@ -727,7 +734,7 @@ const Index = () => {
             <div className="text-center mb-12 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Got questions? We've got answers. Learn more about my blogs and how we serve our readers.
+                Got questions? We've got answers. Learn more about blog keeper and how we serve our readers.
               </p>
             </div>
             <div className="max-w-4xl mx-auto space-y-4">

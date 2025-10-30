@@ -1,12 +1,18 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import { articles } from "@/data/articles";
+import { articleList } from "@/data/articleList";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 
 const Blogs = () => {
+  useSEO({
+    title: "Blog Keeper — Browse articles by category",
+    description: "Discover insightful articles across technology, development, lifestyle, design, sports, and news.",
+    url: "https://blogkeeper.site/blogs",
+  });
   const [searchParams] = useSearchParams();
   const categoryFilter = searchParams.get("category");
   const [selectedCategory, setSelectedCategory] = useState<string>(categoryFilter || "all");
@@ -14,8 +20,8 @@ const Blogs = () => {
   const categories = ["all", "technology", "development", "lifestyle", "design", "sports", "news"];
 
   const filteredArticles = selectedCategory === "all"
-    ? articles
-    : articles.filter(article => article.category.toLowerCase() === selectedCategory);
+    ? articleList
+    : articleList.filter(article => article.category.toLowerCase() === selectedCategory);
 
   return (
     <div className="min-h-screen flex flex-col">
